@@ -14,7 +14,7 @@ def get_indices_of_item_weights(weights, length, limit):
         if hash_table_retrieve(ht, difference) is not None:
             if hash_table_retrieve(ht, difference) > index:
                 return [hash_table_retrieve(ht, difference), index]
-            return [i, hash_table_retrieve(ht, difference)]
+            return [index, hash_table_retrieve(ht, difference)]
         else:
             hash_table_insert(ht, weight, index)
 
