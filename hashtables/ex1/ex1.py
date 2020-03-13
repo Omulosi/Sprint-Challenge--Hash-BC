@@ -8,7 +8,6 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
-    # store weight-index pairs in the ht
     for index, weight in enumerate(weights):
         difference = limit - weight
         if hash_table_retrieve(ht, difference) is not None:
@@ -17,13 +16,6 @@ def get_indices_of_item_weights(weights, length, limit):
             return [index, hash_table_retrieve(ht, difference)]
         else:
             hash_table_insert(ht, weight, index)
-
-    # search for indices with weigths that add up to limit
-    max_indices = ()
-
-
-
-    return ht
 
 
 def print_answer(answer):
