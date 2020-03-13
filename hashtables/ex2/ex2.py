@@ -1,4 +1,3 @@
-#  Hint:  You may not need all of these.  Remove the unused functions.
 from hashtables import (HashTable,
                         hash_table_insert,
                         hash_table_remove,
@@ -16,13 +15,15 @@ def reconstruct_trip(tickets, length):
     hashtable = HashTable(length)
     route = [None] * length
 
+    # Add tickets to hash table
     for ticket in tickets:
         hash_table_insert(hashtable, ticket.source, ticket.destination)
 
+    # Start from initial source
     current = hash_table_retrieve(hashtable, "NONE")
 
-    for i in range(0, length - 1):
+    for i in range(length - 1):
         route[i] = current
         current = hash_table_retrieve(hashtable, current)
 
-    return route
+    return list(filter(None, route))
