@@ -24,11 +24,40 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+ A dynamic array incorporates automatic resizing and has the following runtime complexities (worst case scenarios assumed):
+  * access - O(1)
+  * add (from the back) - O(n). For average case, it's O(1)
+  * remove (from the back) - O(n)
+  * add(from the front) - O(n)
+  * remove(from the front) - O(n)
+
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
+Worst case scenario is O(n).
+
+
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
- 
+
+
+A blockchain is a data structure for sharing a ledger of transactions that is universally agreed upon.
+No one entity owns the chain. The blockchain consists of blocks which are individual links in the chain.
+
+Each block contains an index number, a timestamp, list of transactions, proof used to mine the block,
+and a cryptographic hash of the previous block. The data for each block includes a hash of the previous block, hence if a transaction is modified, it will change the hash of that block and so on.
+
+The hash is the critical part that links the blocks together into
+a chain that cannot be modified without corrupting the rest of the chain.
+
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+Proof of work is a problem that is arbitrarly difficult to solve. since a chain requires a solution
+that uses the hash of the previous block plus a  new value, work cannot start ahead of time and cannot
+be reused. The degree of difficulty of computing a new solution can be tuned to allow a consistent
+discovery of proofs regardless of total effort spent. This protects the blockchain by making it very difficult
+to generate a new block to add to the chain.
+
 
 ## Project Set Up
 
@@ -44,7 +73,7 @@ A hash table implementation has been included for you already. Your task is to g
 
 For the blockchain portion of the challenge, you will be writing code for a new miner that will solve a different Proof of Work algorithm than the one we have been working with.
 
-Your goal is to mine at least one coin.  Keep in mind that with many people competing over the same coins, this may take a long time.  By our math, we expect that an average solution should be the first to find a solution at least once in an hour or two of mining.  
+Your goal is to mine at least one coin.  Keep in mind that with many people competing over the same coins, this may take a long time.  By our math, we expect that an average solution should be the first to find a solution at least once in an hour or two of mining.
 
 ## Minimum Viable Product
 
