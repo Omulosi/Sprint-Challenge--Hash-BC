@@ -8,12 +8,14 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
-
-    """
-    YOUR CODE HERE
-    """
-
-    return None
+    for index, weight in enumerate(weights):
+        difference = limit - weight
+        if hash_table_retrieve(ht, difference) is not None:
+            if hash_table_retrieve(ht, difference) > index:
+                return [hash_table_retrieve(ht, difference), index]
+            return [index, hash_table_retrieve(ht, difference)]
+        else:
+            hash_table_insert(ht, weight, index)
 
 
 def print_answer(answer):
